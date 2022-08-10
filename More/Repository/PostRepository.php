@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\More\Repository;
 
@@ -17,11 +19,8 @@ use DesignPatterns\More\Repository\Domain\PostId;
  */
 class PostRepository
 {
-    private Persistence $persistence;
-
-    public function __construct(Persistence $persistence)
+    public function __construct(private Persistence $persistence)
     {
-        $this->persistence = $persistence;
     }
 
     public function generateId(): PostId

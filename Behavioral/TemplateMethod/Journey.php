@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod;
 
@@ -56,7 +58,7 @@ abstract class Journey
     /**
      * @return string[]
      */
-    public function getThingsToDo(): array
+    final public function getThingsToDo(): array
     {
         return $this->thingsToDo;
     }

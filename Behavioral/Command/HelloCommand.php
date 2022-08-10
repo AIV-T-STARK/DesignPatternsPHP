@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
@@ -8,15 +10,12 @@ namespace DesignPatterns\Behavioral\Command;
  */
 class HelloCommand implements Command
 {
-    private Receiver $output;
-
     /**
      * Each concrete command is built with different receivers.
      * There can be one, many or completely no receivers, but there can be other commands in the parameters
      */
-    public function __construct(Receiver $console)
+    public function __construct(private Receiver $output)
     {
-        $this->output = $console;
     }
 
     /**

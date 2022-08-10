@@ -1,14 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Creational\FactoryMethod;
 
 class FileLogger implements Logger
 {
-    private string $filePath;
-
-    public function __construct(string $filePath)
+    public function __construct(private string $filePath)
     {
-        $this->filePath = $filePath;
     }
 
     public function log(string $message)

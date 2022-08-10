@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Creational\AbstractFactory\Tests;
 
@@ -21,8 +23,6 @@ class AbstractFactoryTest extends TestCase
 
     /**
      * @dataProvider provideFactory
-     *
-     * @param WriterFactory $writerFactory
      */
     public function testCanCreateCsvWriterOnUnix(WriterFactory $writerFactory)
     {

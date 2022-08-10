@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Observer;
 
@@ -15,7 +17,7 @@ class UserObserver implements SplObserver
     /**
      * It is called by the Subject, usually by SplSubject::notify()
      */
-    public function update(SplSubject $subject)
+    public function update(SplSubject $subject): void
     {
         $this->changedUsers[] = clone $subject;
     }

@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Structural\FluentInterface;
 
-class Sql
+class Sql implements \Stringable
 {
     private array $fields = [];
     private array $from = [];
@@ -17,7 +19,7 @@ class Sql
 
     public function from(string $table, string $alias): Sql
     {
-        $this->from[] = $table.' AS '.$alias;
+        $this->from[] = $table . ' AS ' . $alias;
 
         return $this;
     }

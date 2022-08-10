@@ -4,15 +4,12 @@ namespace DesignPatterns\Structural\Flyweight;
 
 class Word implements Text
 {
-    private string $name;
-
-    public function __construct(string $name)
+    public function __construct(private string $name)
     {
-        $this->name = $name;
     }
 
-    public function render(string $font): string
+    public function render(string $extrinsicState): string
     {
-        return sprintf('Word %s with font %s', $this->name, $font);
+        return sprintf('Word %s with font %s', $this->name, $extrinsicState);
     }
 }

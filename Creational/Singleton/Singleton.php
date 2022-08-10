@@ -1,6 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Singleton;
+
+use Exception;
 
 final class Singleton
 {
@@ -11,11 +15,11 @@ final class Singleton
      */
     public static function getInstance(): Singleton
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        if (self::$instance === null) {
+            self::$instance = new self();
         }
 
-        return static::$instance;
+        return self::$instance;
     }
 
     /**
@@ -36,7 +40,8 @@ final class Singleton
     /**
      * prevent from being unserialized (which would create a second instance of it)
      */
-    private function __wakeup()
+    public function __wakeup()
     {
+        throw new Exception("Cannot unserialize singleton");
     }
 }

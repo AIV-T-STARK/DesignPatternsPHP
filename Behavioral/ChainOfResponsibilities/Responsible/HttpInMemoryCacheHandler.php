@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\ChainOfResponsibilities\Responsible;
 
@@ -7,13 +9,9 @@ use Psr\Http\Message\RequestInterface;
 
 class HttpInMemoryCacheHandler extends Handler
 {
-    private array $data;
-
-    public function __construct(array $data, ?Handler $successor = null)
+    public function __construct(private array $data, ?Handler $successor = null)
     {
         parent::__construct($successor);
-
-        $this->data = $data;
     }
 
     protected function processing(RequestInterface $request): ?string

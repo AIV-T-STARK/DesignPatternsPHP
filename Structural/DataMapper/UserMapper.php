@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Structural\DataMapper;
 
@@ -6,11 +8,8 @@ use InvalidArgumentException;
 
 class UserMapper
 {
-    private StorageAdapter $adapter;
-
-    public function __construct(StorageAdapter $storage)
+    public function __construct(private StorageAdapter $adapter)
     {
-        $this->adapter = $storage;
     }
 
     /**

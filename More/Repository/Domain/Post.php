@@ -1,14 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\More\Repository\Domain;
 
 class Post
 {
-    private PostId $id;
-    private PostStatus $status;
-    private string $title;
-    private string $text;
-
     public static function draft(PostId $id, string $title, string $text): Post
     {
         return new self(
@@ -29,12 +26,12 @@ class Post
         );
     }
 
-    private function __construct(PostId $id, PostStatus $status, string $title, string $text)
-    {
-        $this->id = $id;
-        $this->status = $status;
-        $this->text = $text;
-        $this->title = $title;
+    private function __construct(
+        private PostId $id,
+        private PostStatus $status,
+        private string $title,
+        private string $text
+    ) {
     }
 
     public function getId(): PostId

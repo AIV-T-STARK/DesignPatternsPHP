@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\ChainOfResponsibilities;
 
@@ -6,11 +8,8 @@ use Psr\Http\Message\RequestInterface;
 
 abstract class Handler
 {
-    private ?Handler $successor = null;
-
-    public function __construct(Handler $handler = null)
+    public function __construct(private ?Handler $successor = null)
     {
-        $this->successor = $handler;
     }
 
     /**

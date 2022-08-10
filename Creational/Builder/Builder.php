@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Builder;
 
@@ -6,13 +8,13 @@ use DesignPatterns\Creational\Builder\Parts\Vehicle;
 
 interface Builder
 {
-    public function createVehicle();
+    public function createVehicle(): void;
 
-    public function addWheel();
+    public function addWheel(): void;
 
-    public function addEngine();
+    public function addEngine(): void;
 
-    public function addDoors();
+    public function addDoors(): void;
 
     public function getVehicle(): Vehicle;
 }

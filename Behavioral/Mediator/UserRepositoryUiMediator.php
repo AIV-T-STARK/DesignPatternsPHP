@@ -1,17 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Mediator;
 
 class UserRepositoryUiMediator implements Mediator
 {
-    private UserRepository $userRepository;
-    private Ui $ui;
-
-    public function __construct(UserRepository $userRepository, Ui $ui)
+    public function __construct(private UserRepository $userRepository, private Ui $ui)
     {
-        $this->userRepository = $userRepository;
-        $this->ui = $ui;
-
         $this->userRepository->setMediator($this);
         $this->ui->setMediator($this);
     }

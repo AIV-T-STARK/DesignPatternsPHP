@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Adapter;
 
@@ -8,11 +10,8 @@ namespace DesignPatterns\Structural\Adapter;
  */
 class EBookAdapter implements Book
 {
-    protected EBook $eBook;
-
-    public function __construct(EBook $eBook)
+    public function __construct(protected EBook $eBook)
     {
-        $this->eBook = $eBook;
     }
 
     /**

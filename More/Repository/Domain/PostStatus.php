@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DesignPatterns\More\Repository\Domain;
 
@@ -10,19 +12,16 @@ use InvalidArgumentException;
  */
 class PostStatus
 {
-    const STATE_DRAFT_ID = 1;
-    const STATE_PUBLISHED_ID = 2;
+    public const STATE_DRAFT_ID = 1;
+    public const STATE_PUBLISHED_ID = 2;
 
-    const STATE_DRAFT = 'draft';
-    const STATE_PUBLISHED = 'published';
+    public const STATE_DRAFT = 'draft';
+    public const STATE_PUBLISHED = 'published';
 
     private static array $validStates = [
         self::STATE_DRAFT_ID => self::STATE_DRAFT,
         self::STATE_PUBLISHED_ID => self::STATE_PUBLISHED,
     ];
-
-    private int $id;
-    private string $name;
 
     public static function fromInt(int $statusId)
     {
@@ -43,10 +42,8 @@ class PostStatus
         return new self($state, $status);
     }
 
-    private function __construct(int $id, string $name)
+    private function __construct(private int $id, private string $name)
     {
-        $this->id = $id;
-        $this->name = $name;
     }
 
     public function toInt(): int
@@ -56,7 +53,7 @@ class PostStatus
 
     /**
      * there is a reason that I avoid using __toString() as it operates outside of the stack in PHP
-     * and is therefor not able to operate well with exceptions
+     * and is therefore not able to operate well with exceptions
      */
     public function toString(): string
     {
